@@ -1,5 +1,5 @@
 import express from "express";
-import Inventory from "../models/Inventory.mjs";
+import Inventory from "../model/Inventory.mjs";
 
 const router = express.Router();
 

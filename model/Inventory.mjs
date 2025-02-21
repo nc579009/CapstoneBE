@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 // Define Inventory Schema
 const InventorySchema = new mongoose.Schema({
@@ -17,4 +17,6 @@ const InventorySchema = new mongoose.Schema({
   } // Current condition of the item
 });
 
-module.exports = mongoose.model("Inventory", InventorySchema);
+
+
+export default InventorySchema;

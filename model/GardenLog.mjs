@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 // Define Garden Log Schema
 const GardenLogSchema = new mongoose.Schema({
@@ -13,4 +13,6 @@ const GardenLogSchema = new mongoose.Schema({
   notes: { type: String } // Any extra notes about care, pests, etc.
 });
 
-module.exports = mongoose.model("GardenLog", GardenLogSchema);
+
+
+export default GardenLogSchema;

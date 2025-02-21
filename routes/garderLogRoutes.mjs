@@ -1,5 +1,5 @@
 import express from "express";
-import GardenLog from "../models/GardenLog.mjs";
+import GardenLog from "../model/GardenLog.mjs";
 
 const router = express.Router();
 

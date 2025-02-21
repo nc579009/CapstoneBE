@@ -5,7 +5,7 @@ import connectDB from './config/db.mjs';
 import cors from 'cors';
 
 import inventoryRoutes from './routes/inventoryRoutes.mjs';
-import gardenRoutes from './routes/gardenRoutes.mjs';
+import gardenRoutes from './routes/garderLogRoutes.mjs';
 import userRoutes from './routes/userRoutes.mjs';
 
 //Set up
