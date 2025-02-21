@@ -1,5 +1,5 @@
 import express from "express";
-import User from "../model/User.mjs";
+import User from "../model/user.mjs";
 //import bcrypt from "bcryptjs";
 //import jwt from "jsonwebtoken";
 
@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// ✅ Login user (POST /api/users/login)
+//  Login user (POST /api/users/login)
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -46,7 +46,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// ✅ Get user profile (GET /api/users/profile)
+// Get user profile (GET /api/users/profile)
 router.get("/profile", async (req, res) => {
   try {
     const { userId } = req.query; // Assuming frontend sends userId in query

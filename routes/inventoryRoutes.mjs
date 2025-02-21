@@ -3,7 +3,9 @@ import Inventory from "../model/Inventory.mjs";
 
 const router = express.Router();
 
-// ✅ Create a new inventory item (POST)
+// CRUD operations for inventory items
+
+// Create a new inventory item (POST)
 router.post("/", async (req, res) => {
   try {
     const newItem = new Inventory(req.body);
@@ -14,7 +16,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// ✅ Get all inventory items (GET)
+// Get all inventory items (GET)
 router.get("/", async (req, res) => {
   try {
     const items = await Inventory.find();
@@ -24,4 +26,28 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Update an inventory item (PUT)
+router.put("/:id", async (req, res) => {
+    try {
+      const updatedItem = await Inventory.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      if (!updatedItem) return res.status(404).json({ message: "Item not found" });
+  
+      res.json(updatedItem);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+
+  // Delete an inventory item (DELETE)
+  router.delete("/:id", async (req, res) => {
+    try {
+      const deletedItem = await Inventory.findByIdAndDelete(req.params.id);
+      if (!deletedItem) return res.status(404).json({ message: "Item not found" });
+  
+      res.json({ message: "Item deleted successfully" });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
 export default router;
