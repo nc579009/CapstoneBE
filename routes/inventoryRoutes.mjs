@@ -8,6 +8,7 @@ const router = express.Router();
 // Create a new inventory item (POST)
 router.post("/", async (req, res) => {
   try {
+    console.log(req.body);
     const newItem = new Inventory(req.body);
     const savedItem = await newItem.save();
     res.status(201).json(savedItem);
