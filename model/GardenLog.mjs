@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 // Define Garden Log Schema
 const GardenLogSchema = new mongoose.Schema({
   plantName: { type: String, required: true }, // Name of the plant (e.g., "Tomatoes")
-  plantedDate: { type: Date, required: true }, // When the plant was planted
+  plantedDate: { type: Date, default: Date.now }, // When the plant was planted
   lastWatered: { type: Date, default: Date.now }, // Last watering date
   growthStage: { 
     type: String, 
@@ -14,5 +14,5 @@ const GardenLogSchema = new mongoose.Schema({
 });
 
 
-
-export default GardenLogSchema;
+const GardenLog = mongoose.model("gardenLog", GardenLogSchema);
+export default GardenLog;

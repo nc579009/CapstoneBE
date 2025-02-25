@@ -5,7 +5,7 @@ const InventorySchema = new mongoose.Schema({
   name: { type: String, required: true }, // Item name (e.g., "Shovel", "Tomato Seeds")
   category: { 
     type: String, 
-    enum: ["tool", "seed", "supply"], 
+    enum: ["tool", "seed", "supply", "plant"], 
     required: true 
   }, // Defines if it's a tool, seed, or supply
   quantity: { type: Number, default: 1 }, // Number of items available
@@ -13,10 +13,10 @@ const InventorySchema = new mongoose.Schema({
   status: { 
     type: String, 
     enum: ["Growing", "Ready to Harvest", "Harvested", "Available"], 
-    default: "available" 
+    default: "Available" 
   } // Current condition of the item
 });
 
+const Inventory = mongoose.model("inventory", InventorySchema)
 
-
-export default InventorySchema;
+export default Inventory;

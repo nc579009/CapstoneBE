@@ -5,7 +5,7 @@ import User from "../model/user.mjs";
 
 const router = express.Router();
 
-// ✅ Register a new user (POST /api/users/register)
+//  Register a new user (POST /api/users/register)
 router.post("/register", async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -59,5 +59,6 @@ router.get("/profile", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
 
 export default router;
